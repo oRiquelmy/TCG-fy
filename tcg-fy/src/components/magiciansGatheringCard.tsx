@@ -1,5 +1,5 @@
 import React from 'react';
-import '../visuals/twoPiecesStyle.css'
+import '../visuals/magiciansGatheringStyle.css'
 
 interface MagiciansGatheringCardProps {
     ImageSrc: string;

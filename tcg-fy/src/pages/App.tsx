@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import logo from '../visuals/logo.svg';
+import logo from '../visuals/images/TCG-FY_Logo.png';
 import '../visuals/App.css';
 import { MagiciansGatheringCard } from '../components/magiciansGatheringCard';
 import { TwoPiecesCard } from '../components/twoPiecesCard';
@@ -41,20 +41,19 @@ function App() {
       <header className="App-header">
         <div className='inline-container'>
           <img src={logo} className="App-logo" alt="logo" />
-          <h1>TCG-fy</h1>
+          <h1>TCG-fy!&nbsp;&nbsp;&nbsp;</h1>
         </div>
-        
-        <p>
-          Suas fotos em cartas de TCG!
-        </p>
       </header>
 
       <main>
+        <h2>
+          Suas fotos em cartas de TCG!
+        </h2>
         <p>Adicione uma imagem para começar:</p>
         <input
+          className='image-input'
           type="file"
           name="Adicionar Imagem"
-          // Event handler to capture file selection and update the state
           onChange={(event: React.ChangeEvent<HTMLInputElement>) => {
               const file = event.target.files?.[0] ?? null;
               if (file) {
@@ -77,10 +76,33 @@ function App() {
             <h2>Selecionar Estilo:</h2>
 
             <div className='cards-container'>
-              <button onClick={() => setSelectedCard('Magicians Gathering')}>Magicians Gathering</button>
-              <button onClick={() => setSelectedCard('Two Pieces')}>Two Pieces</button>
-              <button onClick={() => setSelectedCard('PokeCreatures')}>PokeCreatures</button>
-              <button onClick={() => setSelectedCard('YuGiYay')}>YuGiYay</button>
+              <button
+                onClick={() => setSelectedCard('Magicians Gathering')}
+                className="magicians-gathering-selector-button"
+              >
+                Magicians Gathering
+              </button>
+
+              <button
+                onClick={() => setSelectedCard('Two Pieces')}
+                className="two-pieces-selector-button"
+              >
+                Two Pieces
+              </button>
+
+              <button
+                onClick={() => setSelectedCard('PokeCreatures')}
+                className="poke-creatures-selector-button"
+              >
+                PokeCreatures
+              </button>
+              
+              <button
+                onClick={() => setSelectedCard('YuGiYay')}
+                className="yu-gi-yay-selector-button"
+              >
+                YuGiYay
+              </button>
             </div>
 
             <div className='cards-inputs'>
@@ -160,6 +182,7 @@ function App() {
           />)
         }
       </main>
+      <footer><h3>Ver 1.0</h3></footer>
     </div>
   );
 }

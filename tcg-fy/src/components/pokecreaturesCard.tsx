@@ -1,5 +1,5 @@
 import React from 'react';
-import '../visuals/twoPiecesStyle.css'
+import '../visuals/pokeCreaturesStyle.css'
 
 interface PokeCreaturesCardProps {
     ImageSrc: string;
@@ -19,7 +19,7 @@ export const PokeCreaturesCard: React.FC<PokeCreaturesCardProps> = ({
     Mana
 }) => {
     return (
-        <div className="poke-creatures-card">
+        <div className="poke-creature-card">
             <img className="poke-creature-image" src={ImageSrc} alt={Title} />
             <h2 className="poke-creature-title">{Title}</h2>
             <p className="poke-creature-description">{Description}</p>

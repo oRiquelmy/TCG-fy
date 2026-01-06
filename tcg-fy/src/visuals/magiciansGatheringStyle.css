@@ -1,0 +1,39 @@
+.magicians-gathering-card {
+    width: 220px;
+    height: 360px;
+    border: 6px solid #2d1f57;
+    border-radius: 12px;
+    background: linear-gradient(180deg,#2d1f57,#5a3fa0);
+    color: #fff;
+    padding: 10px;
+    box-shadow: 0 6px 12px rgba(45,31,87,0.4);
+    text-align: center;
+}
+
+.magicians-gathering-card img {
+    width: 90%;
+    border-radius: 8px;
+    margin: 0 auto;
+    display: block;
+}
+
+.magicians-gathering-card h2 {
+    margin: 10px 0;
+    font-size: 1.2rem;
+}
+
+.magicians-gathering-card p {
+    font-size: 0.9rem;
+    margin-bottom: 8px;
+}
+
+.magicians-gathering-card .category,
+.magicians-gathering-card .power,
+.magicians-gathering-card .mana {
+    display: inline-block;
+    margin: 4px;
+    background: rgba(255,255,255,0.08);
+    padding: 4px 8px;
+    border-radius: 6px;
+    font-size: 0.8rem;
+} 
