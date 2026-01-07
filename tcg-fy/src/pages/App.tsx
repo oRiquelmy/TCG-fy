@@ -66,6 +66,7 @@ function App() {
         {selectedImage && (
           <div>
             {/* Display the selected image */}
+            <br />
             <img
               alt="not found"
               width={"250px"}
@@ -78,28 +79,28 @@ function App() {
             <div className='cards-container'>
               <button
                 onClick={() => setSelectedCard('Magicians Gathering')}
-                className="magicians-gathering-selector-button"
+                className={`magicians-gathering-selector-button ${selectedCard === 'Magicians Gathering' ? 'selected' : ''}`}
               >
                 Magicians Gathering
               </button>
 
               <button
                 onClick={() => setSelectedCard('Two Pieces')}
-                className="two-pieces-selector-button"
+                className={`two-pieces-selector-button ${selectedCard === 'Two Pieces' ? 'selected' : ''}`}
               >
                 Two Pieces
               </button>
 
               <button
                 onClick={() => setSelectedCard('PokeCreatures')}
-                className="poke-creatures-selector-button"
+                className={`poke-creatures-selector-button ${selectedCard === 'PokeCreatures' ? 'selected' : ''}`}
               >
                 PokeCreatures
               </button>
               
               <button
                 onClick={() => setSelectedCard('YuGiYay')}
-                className="yu-gi-yay-selector-button"
+                className={`yu-gi-yay-selector-button ${selectedCard === 'YuGiYay' ? 'selected' : ''}`}
               >
                 YuGiYay
               </button>
@@ -182,7 +183,7 @@ function App() {
           />)
         }
       </main>
-      <footer><h3>Ver 1.0</h3></footer>
+      <footer className='App-footer'><h3>Ver 1.0</h3></footer>
     </div>
   );
 }
