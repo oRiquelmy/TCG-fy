@@ -16,23 +16,23 @@ function App() {
   const [power, setPower] = useState<string>('');
   const [mana, setMana] = useState<string>('');
 
-  const handleTitleChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleTitleChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setTitle(event.target.value);
   };
 
-  const handleDescriptionChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleDescriptionChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setDescription(event.target.value);
   };
 
-  const handleCategoryChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleCategoryChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setCategory(event.target.value);
   };
 
-  const handlePowerChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handlePowerChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setPower(event.target.value);
   };
 
-  const handleManaChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+  const handleManaChange = (event: React.ChangeEvent<HTMLTextAreaElement>) => {
     setMana(event.target.value);
   };
 
@@ -64,15 +64,12 @@ function App() {
         />
 
         {selectedImage && (
-          <div>
-            {/* Display the selected image */}
-            <br />
+          <div className="card-builder-grid">
             <img
               alt="not found"
               width={"250px"}
               src={URL.createObjectURL(selectedImage)}
             />
-            <br /> <br />
 
             <h2>Selecionar Estilo:</h2>
 
@@ -106,82 +103,92 @@ function App() {
               </button>
             </div>
 
-            <div className='cards-inputs'>
-              {selectedCard && <h3>Estilo selecionado: {selectedCard}</h3>}
+            <div className="left-panel">
+              <div className='builder-panel'>
+                <div className='cards-inputs'>
+                  {selectedCard && (
+                    <>
+                      <h3>Estilo selecionado: {selectedCard}</h3>
 
-              <input
-                type='text'
-                placeholder='Título'
-                onChange={handleTitleChange}
-                required
-              />
-              <input
-                type='text'
-                placeholder='Descrição'
-                onChange={handleDescriptionChange}
-                required
-              />
-              <input
-                type='text'
-                placeholder='Categoria (Opcional)'
-                onChange={handleCategoryChange}
-              />
-              <input
-                type='text'
-                placeholder='Poder (Opcional)'
-                onChange={handlePowerChange}
-              />
-              <input
-                type='text'
-                placeholder='Mana (Opcional)'
-                onChange={handleManaChange}
-              />
+                      <textarea
+                        placeholder='Título'
+                        rows={1}
+                        onChange={handleTitleChange}
+                      />
+                      <textarea
+                        placeholder='Descrição'
+                        rows={1}
+                        onChange={handleDescriptionChange}
+                        required
+                      />
+                      <textarea
+                        placeholder='Categoria (Opcional)'
+                        rows={1}
+                        onChange={handleCategoryChange}
+                      />
+                      <textarea
+                        placeholder='Poder (Opcional)'
+                        rows={1}
+                        onChange={handlePowerChange}
+                      />
+                      <textarea
+                        placeholder='Mana (Opcional)'
+                        rows={1}
+                        onChange={handleManaChange}
+                      />
+                    </>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="right-panel">
+              {selectedCard === 'Magicians Gathering' && (
+                <MagiciansGatheringCard 
+                  ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
+                  Title={title}
+                  Description={description}
+                  Category={category}
+                  Power={power}
+                  Mana={mana}
+                />
+              )}
+
+              {selectedCard === 'Two Pieces' && (
+                <TwoPiecesCard 
+                  ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
+                  Title={title}
+                  Description={description}
+                  Category={category}
+                  Power={power}
+                  Mana={mana}
+                />
+              )}
+
+              {selectedCard === 'PokeCreatures' && (
+                <PokeCreaturesCard 
+                  ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
+                  Title={title}
+                  Description={description}
+                  Category={category}
+                  Power={power}
+                  Mana={mana}
+                />
+              )}
+
+              {selectedCard === 'YuGiYay' && (
+                <YuGiYayCard
+                  ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
+                  Title={title}
+                  Description={description}
+                  Category={category}
+                  Power={power}
+                  Mana={mana}
+                />
+              )}
             </div>
           </div>
         )}
-
-        {selectedImage && selectedCard === 'Magicians Gathering' && (
-          <MagiciansGatheringCard 
-              ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
-              Title={title}
-              Description={description}
-              Category={category}
-              Power={power}
-              Mana={mana}
-          />)
-        }
-        {selectedImage && selectedCard === 'Two Pieces' && (
-          <TwoPiecesCard 
-            ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
-            Title={title}
-            Description={description}
-            Category={category}
-            Power={power}
-            Mana={mana}
-          />)
-        }
-
-        {selectedImage && selectedCard === 'PokeCreatures' && (
-          <PokeCreaturesCard 
-            ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
-            Title={title}
-            Description={description}
-            Category={category}
-            Power={power}
-            Mana={mana}
-          />)
-        }
-
-        {selectedImage && selectedCard === 'YuGiYay' && (
-          <YuGiYayCard
-            ImageSrc={selectedImage ? URL.createObjectURL(selectedImage) : ''}
-            Title={title}
-            Description={description}
-            Category={category}
-            Power={power}
-            Mana={mana}
-          />)
-        }
       </main>
       <footer className='App-footer'><h3>Ver 1.0</h3></footer>
     </div>

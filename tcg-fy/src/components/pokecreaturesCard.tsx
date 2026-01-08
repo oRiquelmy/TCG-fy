@@ -20,16 +20,27 @@ export const PokeCreaturesCard: React.FC<PokeCreaturesCardProps> = ({
 }) => {
     return (
         <div className="poke-creature-card">
-            <div className="poke-creature-image-area">
-                <img className="poke-creature-image" src={ImageSrc} alt={Title} />
+            <div className="poke-creature-inner">
+
+                <strong>{Category}</strong>
+                <div className="poke-creature-header">
+                <span>{Title || "Nome da Criatura"}</span>
+                {Mana && <span>{Mana}</span>}
+                </div>
+
+                <div className="poke-creature-image-area">
+                <img src={ImageSrc} className="poke-creature-image" alt="PokeCreature-Image" />
+                </div>
+
+                <div className="poke-creature-text-area">
+                
+                <p>{Description}</p>
+                </div>
+
+                <div className="poke-creature-footer">
+                {Power && <span>ATK {Power}</span>}
+                </div>
             </div>
-            <div className="poke-creature-text-area">
-                <h2 className="poke-creature-title">{Title}</h2>
-                <p className="poke-creature-description">{Description}</p>
-            </div>
-            {Category && <span className="category">{Category}</span>}
-            {Power && <span className="power">{Power}</span>}
-            {Mana && <span className="mana">{Mana}</span>}
         </div>
     );
 };
